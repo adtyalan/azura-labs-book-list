@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Booklist Management System
 
-## Getting Started
+A production-ready full-stack web application designed for managing book collections and categories, built as a Next.js 16 monolith with Prisma ORM, PostgreSQL, and daisyUI.
 
-First, run the development server:
+---
 
+## 🛠️ Tech Stack
+
+- **Frontend & Backend**: Next.js 16 (App Router, React 19 stable, Turbopack)
+- **Database ORM**: Prisma ORM
+- **Database Engine**: PostgreSQL
+- **Styling & UI Components**: Tailwind CSS v4 & daisyUI v5
+- **Validation**: Zod (Server-side schema validation)
+
+---
+
+## 🚀 Local Setup & Installation
+
+Follow these steps to run the project locally on your machine:
+
+### 1. Prerequisites
+Ensure you have **Node.js** (v18+) and a running **PostgreSQL** instance.
+
+### 2. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd book-list-azura-labs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Environment Configuration
+Copy the `.env.example` file to `.env`:
+```bash
+cp .env.example .env
+```
+Open `.env` and configure your local PostgreSQL connection string:
+```env
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/booklist?schema=public"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Run Database Migrations & Seed Data
+Generate Prisma Client, run migrations, and automatically populate the database with seed data (5 categories and 20 realistic books):
+```bash
+npx prisma migrate dev
+```
 
-## Learn More
+### 6. Start the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Key Features & Advantages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Instant Hydration**: Comes with an automated database seeder populating rich mock data instantly upon setup.
+- **Server-Side Search & Filter**: Real-time category filtering, publication date boundaries, and global search that queries across Title, Author, and Publisher simultaneously via URL Search Params.
+- **URL State Persistence**: All filter states are saved in the URL, allowing layouts and search results to be easily bookmarked or shared.
+- **Debounced Search**: Optimized client-side search field with input debouncing to reduce unnecessary database queries.
+- **Modern Responsive Design**: Fully stylized with Tailwind CSS v4 and daisyUI v5, featuring elegant components, interactive loaders, and dynamic gradient fallback book covers.
+- **Robust Database Integrity**: Powered by PostgreSQL and Prisma ORM, utilizing cascading deletes and schema indexing for maximum performance.
