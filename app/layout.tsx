@@ -54,12 +54,12 @@ export default async function RootLayout({
         {/* Navbar Premium */}
         <header className="navbar bg-base-100 shadow-md px-4 md:px-6 py-3.5 sticky top-0 z-40 border-b border-base-200 gap-4 flex-col sm:flex-row justify-between items-center">
           <div className="flex-1 w-full sm:w-auto justify-between sm:justify-start">
-            <a href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
+            <a href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity brand-text">
               <div className="bg-primary text-primary-content p-2 rounded-lg shadow-md">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <div>
-                <span className="text-xl font-black tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <div className=" flex flex-col gap-1">
+                <span className="text-xl font-black tracking-tight brand-text">
                   PustakaKita
                 </span>
                 <span className="text-[10px] block font-semibold text-base-content/60 tracking-wider -mt-1 uppercase">

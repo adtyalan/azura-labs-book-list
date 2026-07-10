@@ -34,3 +34,11 @@ body {
     transform: translateX(0%);
   }
 }
+
+.brand-text {
+  color: #000000 !important;
+}
+
+[data-theme="dark"] .brand-text {
+  color: #ffffff !important;
+}
